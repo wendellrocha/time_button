@@ -1,0 +1,19 @@
+name: time_button
+description: A new Flutter timer button widget.
+version: 1.0.0
+author: Wendell Rocha
+homepage: https://github.com/wendellrocha/time_button
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  fluttertoast: ^7.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
