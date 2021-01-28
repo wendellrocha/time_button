@@ -16,7 +16,7 @@ time_button: ^1.0.0
 
 ```dart
 
-import 'package:time_button/flutter_time_button.dart';
+import 'package:flutter_time_button/flutter_time_button.dart';
 
 TimeButton(
     label: 'Click me',
