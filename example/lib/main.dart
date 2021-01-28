@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:time_button/time_button.dart';
+import 'package:flutter_time_button/flutter_time_button.dart';
 
 void main() {
   runApp(MyApp());

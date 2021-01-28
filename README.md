@@ -1,5 +1,5 @@
 # Time Button
-[![Pub](https://img.shields.io/pub/v/time_button?include_prereleases)](https://pub.dev/packages/date_range_dropdown)
+[![Pub](https://img.shields.io/pub/v/flutter_time_button?include_prereleases)](https://pub.dev/packages/flutter_time_button)
 
 A new Flutter timer button widget. 
 
@@ -16,7 +16,7 @@ time_button: ^1.0.0
 
 ```dart
 
-import 'package:time_button/time_button.dart';
+import 'package:time_button/flutter_time_button.dart';
 
 TimeButton(
     label: 'Click me',
