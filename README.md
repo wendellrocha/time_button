@@ -9,7 +9,7 @@ A new Flutter timer button widget.
 Add to `pubspec.yaml` in `dependencies`
 
 ```
-time_button: ^1.0.0
+flutter_time_button: ^1.0.0
 ```
 
 ### Usage
