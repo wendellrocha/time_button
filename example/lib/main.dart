@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -52,10 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TimeButton(
                 label: 'Click me',
                 timeout: 30,
+                color: Theme.of(context).primaryColor,
                 toastMessage: 'Click!',
                 onPressed: () => _incrementCounter(),
               ),
             ),
+            SizedBox(height: 10),
             Text(
               'You have pushed the button this many times:',
             ),

@@ -24,48 +24,44 @@ class TimeButton extends StatefulWidget {
 
   /// [color]
   /// Button's color
-  final Color color;
+  final Color? color;
 
   /// [textColor]
   /// Button's text color
-  final Color textColor;
+  final Color? textColor;
 
   /// [disabledColor]
   /// Button's disabled color
-  final Color disabledColor;
+  final Color? disabledColor;
 
   /// [disabledTextColor]
   /// Button's disabled text color
-  final Color disabledTextColor;
+  final Color? disabledTextColor;
 
   /// [textFontWeight]
   /// Button's text weight
-  final FontWeight textFontWeight;
+  final FontWeight? textFontWeight;
 
   /// [onPressed]
   /// Called when the button is tapped
-  final Function onPressed;
+  final Function? onPressed;
 
   /// [toastMessage]
   /// Show after button is tapped
   final String toastMessage;
 
   const TimeButton({
-    Key key,
-    @required this.label,
-    @required this.timeout,
-    @required this.onPressed,
-    @required this.toastMessage,
+    Key? key,
+    required this.label,
+    required this.timeout,
+    required this.onPressed,
+    required this.toastMessage,
     this.color,
     this.textColor,
     this.textFontWeight,
     this.disabledTextColor,
     this.disabledColor,
-  })  : assert(label != null),
-        assert(timeout != null),
-        assert(onPressed != null),
-        assert(toastMessage != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _TimeButtonState createState() => _TimeButtonState();
@@ -126,7 +122,7 @@ class _TimeButtonState extends State<TimeButton> {
 
   _onPressed() {
     if (timeUpFlag) {
-      if (widget.onPressed != null) widget.onPressed();
+      if (widget.onPressed != null) widget.onPressed!();
     }
 
     timeUpFlag = false;
@@ -139,22 +135,30 @@ class _TimeButtonState extends State<TimeButton> {
         gravity: ToastGravity.BOTTOM);
   }
 
+  Color _backgroundColor(BuildContext _) {
+    if (timeUpFlag) {
+      return widget.color ?? Theme.of(_).accentColor;
+    }
+
+    return widget.disabledColor ?? Theme.of(_).dividerColor;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 50,
-      child: RaisedButton(
-        elevation: 0.0,
-        color:
-            widget.color != null ? widget.color : Theme.of(context).accentColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6),
-          side: BorderSide(
-            width: 2.0,
-            color: timeUpFlag
-                ? Theme.of(context).accentColor
-                : Theme.of(context).dividerColor,
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: _backgroundColor(context),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6),
+            side: BorderSide(
+              width: 2.0,
+              color: timeUpFlag
+                  ? Theme.of(context).accentColor
+                  : Theme.of(context).dividerColor,
+            ),
           ),
         ),
         child: _buildChild(),
